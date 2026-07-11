@@ -1,3 +1,3 @@
-# React Router v8 Declarative mode version
+# React Router v8 Framework mode version
 
-See other branches for Data and Framework versions.
+See other branches for Data and Declarative versions.
