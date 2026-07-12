@@ -1,4 +1,15 @@
-import { useLoaderData } from 'react-router';
+import { redirect, useLoaderData } from 'react-router';
+import { getCoinDetails } from '../lib/getCoins';
+
+export async function loader({ params }: { params: Record<string, string> }) {
+  const coinId = params.coinId;
+  if (!coinId) {
+    throw redirect('/not-found');
+  }
+  const coinDetails = await getCoinDetails(coinId);
+
+  return { coinDetails, coinId };
+}
 
 const Details = () => {
   const { coinDetails: coin } = useLoaderData() as {

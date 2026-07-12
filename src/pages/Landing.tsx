@@ -1,4 +1,10 @@
 import { Link, useLoaderData } from 'react-router';
+import { getCoins } from '../lib/getCoins';
+
+export async function loader() {
+  const coins = await getCoins();
+  return { coins };
+}
 
 const Landing = () => {
   const { coins } = useLoaderData() as { coins: any[] };
